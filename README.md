@@ -4,7 +4,7 @@
 
 This is a very simple app to turn the climate control on or off via OVMS, if your OVMS vehicle module is capable of climatecontrol on and off and you are using a V2 server.
 
-The app works only in combination with the Android OVMS app. Within the OVMS app you'll need to activate The "vehicle commands" function at "Options".
+The app works only in combination with the Android OVMS app. Within the OVMS app you'll need to activate the "vehicle commands" function at "Options".
 
 In the OVMS-Fireplace app you need to enter the vehicle-id and the password you use for that id. You do that by tapping on the yellow bar and then enter the id, tap OK and then enter the password. After you tapped OK again, id and password are stored on your device. Warning: the password is stored plain text on your device. If you are not comfortable with that, don't use this app.
 
