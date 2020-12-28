@@ -1,6 +1,8 @@
 # OVMS-Fireplace
 
-This is a very simple app to turn the climate control on or off via OVMS, if your OVMS vehicle module is capable off climetecontrol on and off.
+![OVMS-Fireplace](fp.jpg)
+
+This is a very simple app to turn the climate control on or off via OVMS, if your OVMS vehicle module is capable off climetecontrol on and off and are using a V2 server.
 
 The app works only in combination with the Android OVMS app. Within the OVMS app you'll need to activate The "vehicle commands" function at "Options".
 
@@ -15,3 +17,7 @@ As I wrote this is a very simple app. There are no plausibility checks within th
 There is also no response within the app if the car turns off the heater. The app will continue to show the fire with the tickling sound. 
 
 An other issue is, that the app does not keep the display on. You can use Androids build in "Coffein" function for that.
+
+You can find an unsigned debug apk here:
+https://github.com/devmarxx/OVMS-Fireplace/blob/main/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+
