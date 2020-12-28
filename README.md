@@ -2,7 +2,7 @@
 
 ![OVMS-Fireplace](fp.jpg)
 
-This is a very simple app to turn the climate control on or off via OVMS, if your OVMS vehicle module is capable of climatecontrol on and off and you are using a V2 server.
+This is a very simple app to turn the climate control on or off via OVMS, if your OVMS vehicle module is capable of climatecontrol on and off.
 
 The app works only in combination with the Android OVMS app. Within the OVMS app you'll need to activate the "vehicle commands" function at "Options".
 
