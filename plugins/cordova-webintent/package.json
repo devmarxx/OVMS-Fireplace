@@ -1,0 +1,49 @@
+{
+  "_from": "github:cordova-misc/cordova-webintent",
+  "_id": "cordova-webintent@2.0.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-webintent",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "github:cordova-misc/cordova-webintent.git",
+    "rawSpec": "github:cordova-misc/cordova-webintent.git",
+    "saveSpec": "github:cordova-misc/cordova-webintent",
+    "fetchSpec": null,
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "github:cordova-misc/cordova-webintent#81788d64e1eaecfa6e617e0f4d01b0949fbfae54",
+  "_spec": "github:cordova-misc/cordova-webintent.git",
+  "_where": "/works/OVMS_Fireplace",
+  "author": {
+    "name": "borismus"
+  },
+  "bugs": {
+    "url": "https://github.com/cordova-misc/cordova-webintent/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "WebIntent Android Plugin for Cordova 3.X",
+  "homepage": "https://github.com/cordova-misc/cordova-webintent#readme",
+  "keywords": [
+    "cordova",
+    "webintent",
+    "intent"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "cordova-webintent",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cordova-misc/cordova-webintent.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "2.0.0"
+}

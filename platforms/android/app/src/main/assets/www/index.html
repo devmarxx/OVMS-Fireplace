@@ -1,0 +1,105 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="./fire.css">
+    <script type="text/javascript" src="./cordova.js"></script>
+    <script>
+      var fire1 = new Image();
+      fire1.src = "./fire.gif";
+
+      var fire2 = new Image();
+      fire2.src = "./fire_st.gif";
+
+      var playing = false;
+      var set_ok = true;
+      var timeoff = 0;
+      var timeleft = 17;
+
+      var vid = window.localStorage.getItem("fp_vid");
+      var pwd = window.localStorage.getItem("fp_pwd");
+
+      function play() {
+        var audio = document.getElementById("audio");
+        if (!playing && timeoff == 0) {
+           timeleft = 17;
+           playing = true;
+           set_ok = false;
+           var startccTimer = setInterval(function(){
+           if(timeleft == 17) {
+	      window.plugins.webintent.sendBroadcast({
+		action: 'com.openvehicles.OVMS.SendCommand',
+		extras: { 
+                          sel_vehicleid: vid,
+                          sel_server_password: pwd,
+                          msg_command: '7,climatecontrol on'
+                        }
+		}, function() {
+		}, function() {
+                   alert('Connection to OVMS app failed.');
+	       });
+           }
+           if(timeleft <= 1){
+              audio.play();
+              document.getElementById("fire").src = "./fire.gif";
+              clearInterval(startccTimer);
+           }
+           timeleft -= 1;
+           document.getElementById("pgin").style.width = 102 - (6 * (17 - timeleft)) + "%";
+           }, 1000);
+        } 
+        if (playing && timeleft == 0) {
+           timeoff = 10;
+           playing = false;
+           document.getElementById("pgin").style.backgroundColor = "red";
+           document.getElementById("pgin").style.width = "100%";
+           audio.pause();
+           document.getElementById("fire").src = "./fire_st.gif";
+	   window.plugins.webintent.sendBroadcast({
+	      action: 'com.openvehicles.OVMS.SendCommand',
+	      extras: { 
+                        sel_vehicleid: vid,
+                        sel_server_password: pwd,
+                        msg_command: '7,climatecontrol off'
+                      }
+	      }, function() {
+	      }, function() {
+                 timeleft = 0;
+                 alert('Connection to OVMS app failed.');
+	      });
+
+           var startoffTimer = setInterval(function(){
+           if(timeoff <= 1){     
+              document.getElementById("pgin").style.backgroundColor = "orange";     
+              clearInterval(startoffTimer);
+              set_ok = true;
+           }
+           timeoff -= 1;
+           }, 1000);
+        }
+      }
+    </script>
+</head>
+<body bgcolor="black">
+<div id="progressbar">
+<a href="#" onFocus="if(this.blur)this.blur()" onclick="settings()">
+  <div id="pgin"></div>
+</a>
+</div>
+<script>
+ function settings() {
+    if (set_ok) {
+       vid = prompt("Vehicle ID",vid)
+       window.localStorage.setItem("fp_vid", vid);
+       pwd = prompt("Password",pwd)
+       window.localStorage.setItem("fp_pwd", pwd);
+    }
+ }
+</script>
+<audio id="audio" loop>
+<source src="./fire3.ogg" type="audio/ogg">
+</audio>
+
+<a href="#" onFocus="if(this.blur)this.blur()" onclick="play()"><img src="fire_st.gif" border="0" id="fire"></a>
+
+</body>
+</html>
+
